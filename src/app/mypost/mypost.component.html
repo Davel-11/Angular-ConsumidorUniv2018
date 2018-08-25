@@ -1,0 +1,17 @@
+
+
+<form>
+  <div class="form-group">
+    <label for="nombre">Nombre</label>
+    <input #nombred type="text" class="form-control" id="nombre" placeholder="Ingresa tu Nombre">    
+  </div>
+  <div class="form-group">
+    <label  for="numero">Numero</label>
+    <input #numerod type="text" class="form-control" id="numero" placeholder="ingresa tu Numero">
+  </div>
+
+  <button type="submit" class="btn btn-primary" (click)="enviarDatosComp(nombred, numerod)" >Enviar</button>
+  
+</form>
+
+
