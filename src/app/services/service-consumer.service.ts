@@ -36,7 +36,7 @@ export class ServiceConsumerService {
 
   actualizarDatos(datosEstudiante){
     //this.http.put(this.url, JSON.stringify(post) )
-    return this.http.put(this.url+''+datosEstudiante.id, JSON.stringify(datosEstudiante), {headers: this.headers});
+    return this.http.put<any>(this.url+''+datosEstudiante.id, JSON.stringify(datosEstudiante), {headers: this.headers});
 }
 
   borrarDatos(Yid){

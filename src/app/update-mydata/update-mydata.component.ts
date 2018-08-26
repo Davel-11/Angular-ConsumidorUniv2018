@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ServiceConsumerService } from '../services/service-consumer.service';
 
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
+import { delay } from 'q';
 
 
 
@@ -15,9 +16,10 @@ export class UpdateMydataComponent implements OnInit {
   constructor(
     private router: Router,
     private route: ActivatedRoute, 
-    private serviceAccess : ServiceConsumerService) { }
-
-  public datosEstudiante:  any={};
+    private serviceAccess : ServiceConsumerService)    
+    { }
+    
+    public datosEstudiante:  any={};
 
   ngOnInit() {   
     let parametroId = this.route.snapshot.paramMap.get('parametroId'); 
@@ -30,15 +32,21 @@ export class UpdateMydataComponent implements OnInit {
       });         
   }
 
-  post = {
-    name: nombred.value,
-    number: numerod.value
-  }
+  
 
   actualizarDatosComp(nombred, numerod){
-      console.log(this.datosEstudiante.id);
-      console.log(nombred.value);
-      console.log(numerod.value);
-     //this.serviceAccess.actualizarDatos(datosEstudiante);
-  }
+
+    let post = {
+      "id": +this.datosEstudiante.id,
+      "name": nombred.value,
+      "number": numerod.value
+    }
+      console.log(post.id);
+      console.log(post.name);
+      console.log(post.number);
+     this.serviceAccess.actualizarDatos(post).subscribe();
+
+     //this.router.navigate(['/']);
+          
+    }
 }
