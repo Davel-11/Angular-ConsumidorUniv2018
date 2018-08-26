@@ -28,11 +28,11 @@ export class ServiceConsumerService {
 
   actualizarDatos(datos){
     //this.http.put(this.url, JSON.stringify(post) )
-return this.http.patch(this.url+ '/'+datos.id, JSON.stringify({ isRead: true }) );
+    return this.http.put(this.url+ '/'+datos.id, JSON.stringify({ isRead: true }) );
 }
 
   borrarDatos(Yid){
-    return this.http.delete(this.url + '/'+ Yid  );
+    return this.http.delete(this.url + ''+ Yid );
   }
   
 }

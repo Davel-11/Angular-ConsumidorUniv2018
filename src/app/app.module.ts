@@ -12,6 +12,7 @@ import { MypostComponent } from './mypost/mypost.component';
 //import { NavbarComponent } from './navbar/navbar.component';
 import { RouterModule } from '@angular/router';
 import { NavigationbarComponent } from './navigationbar/navigationbar.component';
+import { UpdateMydataComponent } from './update-mydata/update-mydata.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { NavigationbarComponent } from './navigationbar/navigationbar.component'
     AppComponent,
     ConsumerMyAppComponent,
     MypostComponent,
-    NavigationbarComponent
+    NavigationbarComponent,
+    UpdateMydataComponent
 
   ],
   imports: [

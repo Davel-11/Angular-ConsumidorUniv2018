@@ -18,16 +18,20 @@ export class ConsumerMyAppComponent implements OnInit {
     
   ngOnInit() {
     //this.variable = this.serviceAccess.getAll();
-    this.getDatos();
-  }
-
-  getDatos(){
     this.serviceAccess.getTodos()
     .subscribe( resultados => {
        this.misDatos = resultados;
-       console.log(JSON.stringify(resultados));
-    });    
+       //console.log(JSON.stringify(resultados));
+    });   
   }
 
+  borrarDatosComp(post){    
+    this.serviceAccess.borrarDatos(post.id).subscribe( );
+      location.reload();    
+  }
+
+  actualizarDatosComp(post){
+    this.serviceAccess.actualizarDatos(post.id).subscribe();
+  }
 
 }
