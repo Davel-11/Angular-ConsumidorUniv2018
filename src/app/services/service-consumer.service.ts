@@ -18,7 +18,7 @@ export class ServiceConsumerService {
   
   constructor(public http: HttpClient ) { }
 
-  url: string = 'http://localhost:9699/student/';
+  url: string = 'http://150.168.30.30:9699/student/';
  
   headers = new HttpHeaders({
     'Content-Type': 'application/json',
@@ -44,7 +44,7 @@ export class ServiceConsumerService {
   }
 
   getOne(parametroId){
-    return this.http.get<any>("http://localhost:9699/student/"+parametroId);      
+    return this.http.get<any>(this.url+parametroId);      
   }
     
 }
