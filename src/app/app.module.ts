@@ -32,7 +32,8 @@ import { UpdateMydataComponent } from './update-mydata/update-mydata.component';
 
     RouterModule.forRoot([
       { path : '', component: ConsumerMyAppComponent },
-      { path : 'post', component: MypostComponent }
+      { path : 'post', component: MypostComponent },
+      { path : 'update/:parametroId', component: UpdateMydataComponent }
     ])   
     
   ],

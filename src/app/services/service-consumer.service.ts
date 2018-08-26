@@ -2,15 +2,23 @@ import { Injectable } from '@angular/core';
 import { HttpHeaders} from '@angular/common/http';
 import { HttpClient } from '@angular/common/http';
 
+import {map} from 'rxjs/operators';
+
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/toPromise';
+import 'rxjs/add/observable/throw';
+
 @Injectable({
   providedIn: 'root'
 })
 
 export class ServiceConsumerService {
   
-  constructor(private http: HttpClient ) { }
+  constructor(public http: HttpClient ) { }
 
-  url: string = 'http://150.168.30.30:9699/student/';
+  url: string = 'http://localhost:9699/student/';
  
   headers = new HttpHeaders({
     'Content-Type': 'application/json',
@@ -26,13 +34,17 @@ export class ServiceConsumerService {
     return this.http.post<any>(this.url, JSON.stringify(post),  {headers: this.headers});    
   }
 
-  actualizarDatos(datos){
+  actualizarDatos(datosEstudiante){
     //this.http.put(this.url, JSON.stringify(post) )
-    return this.http.put(this.url+ '/'+datos.id, JSON.stringify({ isRead: true }) );
+    return this.http.put(this.url+''+datosEstudiante.id, JSON.stringify(datosEstudiante), {headers: this.headers});
 }
 
   borrarDatos(Yid){
     return this.http.delete(this.url + ''+ Yid );
   }
-  
+
+  getOne(parametroId){
+    return this.http.get<any>("http://localhost:9699/student/"+parametroId);      
+  }
+    
 }
